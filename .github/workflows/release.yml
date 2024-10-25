@@ -1,0 +1,27 @@
+name: Release
+on:
+    workflow_dispatch:
+    push:
+        branches: ['main']
+jobs:
+    release:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+      
+            - name: Set up uv
+              uses: astral-sh/setup-uv@f3bcaebff5eace81a1c062af9f9011aae482ca9d # v3.1.7
+              with:
+                version: "latest"
+      
+            - name: Set up Python
+              uses: actions/setup-python@39cd14951b08e74b54015e9e001cdefcf80e669f # v5.1.1
+              with:
+                python-version: 3.12
+      
+            - name: Release
+              run: |
+                uv build
+                uv publish --publish-url https://upload.test.pypi.org/legacy/
+      
