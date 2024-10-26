@@ -23,5 +23,5 @@ jobs:
             - name: Release
               run: |
                 uv build
-                uv publish --publish-url https://upload.test.pypi.org/legacy/
+                uv publish --publish-url https://example.com/legacy/
       
