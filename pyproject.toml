@@ -1,5 +1,5 @@
 [project]
-name = "postmodern-python-ci"
+name = "postmodern-ci"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"

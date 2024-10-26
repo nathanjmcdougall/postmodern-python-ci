@@ -242,7 +242,7 @@ wheels = [
 ]
 
 [[package]]
-name = "postmodern-python-ci"
+name = "postmodern-ci"
 version = "0.1.0"
 source = { editable = "." }
 
