@@ -21,11 +21,8 @@ dev-dependencies = [
     "pytest-md>=0.2.0",
     "pytest>=8.3.3",
     "ruff>=0.7.1",
-    "usethis",
 ]
 
-[tool.uv.sources]
-usethis = { path = "../usethis-python" }
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
