@@ -63,8 +63,12 @@ ignore-words-list = [ "..." ]
 keep_full_version = true
 
 [tool.pytest.ini_options]
-testpaths = [ "tests" ]
-addopts = [ "--import-mode=importlib" ]
+testpaths = [ "tests", "src" ]
+addopts = [ "--import-mode=importlib", "--doctest-modules", "-ra", "--strict-markers", "--strict-config" ]
+filterwarnings = [ "error" ]
+xfail_strict = true
+log_cli_level = "INFO"
+minversion = "7"
 
 report.exclude_also = [
   "if TYPE_CHECKING:",
