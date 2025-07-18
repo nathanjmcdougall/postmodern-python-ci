@@ -22,6 +22,8 @@ jobs:
 
       - name: Run pytest
         uses: pavelzw/pytest-action@510c5e90c360a185039bea56ce8b3e7e51a16507 # v2.2.0
+        with:
+          custom-pytest: uv run pytest
 
     strategy:
       matrix:
