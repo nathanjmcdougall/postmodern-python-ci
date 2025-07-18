@@ -1,22 +1,43 @@
 repos:
-  - repo: https://github.com/abravalheri/validate-pyproject
-    rev: v0.22
+  - repo: https://github.com/tox-dev/pyproject-fmt
+    rev: v2.6.0
     hooks:
-      - id: validate-pyproject
-        additional_dependencies: ['validate-pyproject-schema-store[all]']
+      - id: pyproject-fmt
+  - repo: local
+    hooks:
+      - id: ruff
+        name: ruff
+        types_or:
+          - python
+          - pyi
+          - jupyter
+        always_run: true
+        entry: uv run --frozen --offline ruff check --fix --force-exclude
+        language: system
+        require_serial: true
   - repo: local
     hooks:
       - id: ruff-format
         name: ruff-format
-        entry: uv run --frozen ruff format
-        language: system
+        types_or:
+          - python
+          - pyi
+          - jupyter
         always_run: true
-        pass_filenames: false
+        entry: uv run --frozen --offline ruff format --force-exclude
+        language: system
+        require_serial: true
   - repo: local
     hooks:
-      - id: ruff-check
-        name: ruff-check
-        entry: uv run --frozen ruff check --fix
-        language: system
+      - id: deptry
+        name: deptry
         always_run: true
+        entry: uv run --frozen --offline deptry src
+        language: system
         pass_filenames: false
+  - repo: https://github.com/codespell-project/codespell
+    rev: v2.4.1
+    hooks:
+      - id: codespell
+        additional_dependencies:
+          - tomli
