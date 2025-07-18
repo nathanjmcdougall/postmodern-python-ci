@@ -18,7 +18,7 @@ jobs:
 
       - name: Run pre-commit
         run: |
-          uv run --frozen pre-commit run --all-files
+          uv run pre-commit run --all-files
 
       - name: Run pytest
         uses: pavelzw/pytest-action@510c5e90c360a185039bea56ce8b3e7e51a16507 # v2.2.0
