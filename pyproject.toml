@@ -70,6 +70,7 @@ xfail_strict = true
 log_cli_level = "INFO"
 minversion = "7"
 
+[tool.coverage]
 report.exclude_also = [
   "if TYPE_CHECKING:",
   "raise AssertionError",
